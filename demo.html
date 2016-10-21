@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>combobox下拉框拼音检索-支持模糊首字母、全拼、多选以及自身检索</title>
+	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.3.6/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.3.6/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.3.6/demo/demo.css">
+	<script type="text/javascript" src="jquery-easyui-1.3.6/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery-easyui-1.3.6/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="comboboxPinYin-min.js"></script>
+	<style type="text/css">
+	.Content{
+		height:100%;
+		width:400px;
+		margin:10px;
+		float:left;
+	}
+	</style>
+</head>
+<body>
+	<div style="color:red;font-size:20px">提示：<br/>1、该插件基于jQuery EasyUI，已在1.3.4以上版本中测试通过；<br/>
+	2、combobox更多使用请访问jQuery EasyUI官方API.
+	</div>
+	<div style="margin:20px 0"></div>
+   <div class="Content">
+	<h2>示例①：单选检索&&json加载数据</h2>
+	<p>支持拼音首字母、全拼及自身模糊匹配</p>
+	<div style="margin:20px 0"></div>
+	
+	<input class="easyui-combobox" 
+			name="language"
+			data-options="
+					url:'combobox_data.json',
+					filter:filterPinYin,
+					method:'get',
+					valueField:'value',
+					textField:'text',
+					multiple:false,
+					panelHeight:'auto'
+			">
+	</div>
+	<div class="Content">
+	<h2>示例②：多选检索&&json加载数据</h2>
+	<p>支持拼音首字母、全拼及自身模糊匹配，每个选项之间按“,”分隔</p>
+	<div style="margin:20px 0"></div>
+	
+	<input class="easyui-combobox" 
+			name="language"
+			data-options="
+					url:'combobox_data.json',
+					filter:filterPinYin,
+					method:'get',
+					valueField:'value',
+					textField:'text',
+					multiple:true,
+					panelHeight:'auto'
+			">
+	</div>
+<div class="Content">	
+    <h2>示例③：静态数据加载</h2>
+	<p>支持拼音首字母、全拼及自身模糊匹配</p>
+	<div style="margin:20px 0"></div>
+	<select class="easyui-combobox" data-options="filter:filterPinYin," name="state" style="width:200px;">
+	    <option value="请选择">请选择</option>
+		<option value="三国演义">三国演义</option>
+		<option value="水浒传">水浒传</option>
+		<option value="西游记">西游记</option>
+		<option value="红楼梦">红楼梦</option>
+		<option value="古惑仔">古惑仔</option>
+		<option value="平凡的世界">平凡的世界</option>
+		<option value="兄弟">兄弟</option>
+		<option value="Bruce Lee-A man and the legend">Bruce Lee-A man and the legend</option>
+		<option value="文化苦旅">文化苦旅</option>
+		<option value="历史的天空">历史的天空</option>
+		<option value="GodFather">GodFather</option>
+		<option value="李小龙技击法">李小龙技击法</option>
+		<option value="Tao of jeet kune do">Tao of jeet kune do</option>
+		<option value="教父中文全新版">教父中文全新版</option>
+		<option value="截拳道之道">截拳道之道</option>
+	</select>
+</div>
+<div class="Content">
+	<h2>示例④：JavaScript初始化combobox控件</h2>
+	<p>支持拼音首字母、全拼及自身模糊匹配</p>
+	<div style="margin:20px 0"></div>
+	
+	<input id="jsCombobox" />
+	<script type="text/javascript">
+	    $('#jsCombobox').combobox({
+			url:'combobox_data.json',
+			valueField:'value',
+			textField:'text',
+			filter:filterPinYin
+        });
+	</script>
+	</div>
+</body>
+</html>
